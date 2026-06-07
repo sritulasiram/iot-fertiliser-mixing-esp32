@@ -156,4 +156,3 @@ See [`LICENSE`](LICENSE) for full terms.
 
 **Sri Tulasi Ram Rajalingam**
 Support Engineer & Researcher
-Penang ⇌ Ipoh, Malaysia
