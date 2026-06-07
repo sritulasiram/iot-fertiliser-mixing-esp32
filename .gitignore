@@ -1,0 +1,21 @@
+# ─── Credentials & Secrets ───────────────────────────────────────────────────
+# config.h contains real WiFi/Blynk credentials — never commit this
+config.h
+
+# ─── Arduino Build Artifacts ─────────────────────────────────────────────────
+build/
+*.elf
+*.bin
+*.hex
+*.map
+
+# ─── PlatformIO ───────────────────────────────────────────────────────────────
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# ─── IDE & OS ─────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
