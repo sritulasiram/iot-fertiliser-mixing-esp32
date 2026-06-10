@@ -1,158 +1,212 @@
+<div align="center">
+
 # 🌱 IoT-Based Fertiliser Mixing System for Precision Farming
 
-> Research prototype firmware for an ESP32-based automated fertiliser dispensing and monitoring system, developed as part of a published academic study.
+**ESP32 firmware for automated hydroponic fertiliser dispensing and real-time monitoring**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-ESP32-blue.svg)](https://www.espressif.com/en/products/socs/esp32)
+[![Framework](https://img.shields.io/badge/Framework-Arduino-teal.svg)](https://www.arduino.cc/)
+[![Blynk](https://img.shields.io/badge/IoT-Blynk-purple.svg)](https://blynk.io/)
+[![Journal](https://img.shields.io/badge/Published-IJIE%202026-orange.svg)](https://penerbit.uthm.edu.my/ojs/index.php/ijie/article/view/24386)
+
+</div>
 
 ---
 
 ## 📄 Publication
 
-**Sri Tulasi Ram Rajalingam**, Muhammad Muzakkir Mohd Nadzri, Afandi Ahmad, & Mohamad Khairi Ishak.
-*IoT-Based Fertiliser Mixing for Precision Farming.*
-**International Journal of Integrated Engineering**, 18(1), 186–201, 2026.
-🔗 [https://penerbit.uthm.edu.my/ojs/index.php/ijie/article/view/24386](https://penerbit.uthm.edu.my/ojs/index.php/ijie/article/view/24386)
+> **Sri Tulasi Ram Rajalingam**, Muhammad Muzakkir Mohd Nadzri, Afandi Ahmad, & Mohamad Khairi Ishak.
+> *IoT-Based Fertiliser Mixing for Precision Farming.*
+> **International Journal of Integrated Engineering (IJIE)**, Vol. 18(1), pp. 186–201, 2026.
+> 🔗 [View Paper](https://penerbit.uthm.edu.my/ojs/index.php/ijie/article/view/24386)
 
-If you use this code or reference this work, please cite the paper above.
+If you use this code or build upon this work, please cite the paper above.
 
 ---
 
 ## 📌 Overview
 
-This repository contains the ESP32 firmware for a hydroponic fertiliser mixing prototype that:
+This repository contains the ESP32 firmware developed for a hydroponic precision farming prototype that automates fertiliser mixing and delivers real-time monitoring via the Blynk IoT platform.
 
-- Dispenses precise volumes of fertiliser from two independent pump-solenoid circuits
-- Monitors **TDS (Total Dissolved Solids)** concentration in real time using a median-filtered ADC pipeline
-- Reads **two water level sensors** with colour-coded status indicators
-- Streams all sensor data to the **Blynk IoT dashboard** via WiFi
-- Uses a **non-blocking state machine** for dispensing — keeping the Blynk connection and watchdog timer healthy throughout
+**Key capabilities:**
+
+| Feature | Detail |
+|---|---|
+| 💧 Dual-pump dispensing | Two independent pump-solenoid circuits with flow feedback |
+| 📊 TDS monitoring | Real-time ppm readings via 30-point median-filtered ADC pipeline |
+| 🪣 Water level sensing | Two sensors with colour-coded Low / Medium / High indicators |
+| 📱 Remote dashboard | Live data streamed to Blynk app over WiFi |
+| ⚙️ Non-blocking design | State machine architecture — WDT-safe, Blynk connection maintained |
+
+---
+
+## 🗂️ Repository Structure
+
+```
+iot-fertiliser-mixing-esp32/
+├── fertilizer_system.ino   — Main firmware (Arduino sketch)
+├── config.h.example        — Credentials template (copy → config.h)
+├── .gitignore              — Excludes config.h and build artifacts
+├── LICENSE                 — MIT License
+└── README.md               — This file
+```
+
+> `config.h` is **excluded from version control** — your credentials stay local.
 
 ---
 
 ## 🛠️ Hardware
 
-| Component | Details |
-|---|---|
-| Microcontroller | ESP32 (any dev board with ADC1) |
-| Pump 1 | GPIO 16 |
-| Pump 2 | GPIO 17 |
-| Solenoid Valve 1 | GPIO 22 |
-| Solenoid Valve 2 | GPIO 23 |
-| Flow Sensor 1 | GPIO 18 (interrupt-capable) |
-| Flow Sensor 2 | GPIO 19 (interrupt-capable) |
-| TDS Sensor | GPIO 36 (ADC1 — VP pin) |
-| Water Level Sensor 1 | GPIO 34 |
-| Water Level Sensor 2 | GPIO 35 |
+### Components & Pin Mapping
 
-> ⚠️ **Note:** TDS sensor must be on ADC1 (GPIO 32–39). ADC2 is unusable while WiFi is active on ESP32.
-
----
-
-## 📱 Blynk Virtual Pin Mapping
-
-| Virtual Pin | Direction | Description |
+| Component | GPIO | Notes |
 |---|---|---|
-| V1 | Input | Desired dispense volume (ml) from app |
-| V2 | Output | Total volume dispensed (ml) |
-| V3 | Output | TDS value (ppm) |
-| V4 | Output | Water level sensor 1 (raw ADC + LED colour) |
-| V5 | Output | Water level sensor 2 (raw ADC + LED colour) |
+| Microcontroller | — | ESP32 (any dev board with ADC1) |
+| Pump 1 | 16 | OUTPUT |
+| Pump 2 | 17 | OUTPUT |
+| Solenoid Valve 1 | 22 | OUTPUT |
+| Solenoid Valve 2 | 23 | OUTPUT |
+| Flow Sensor 1 | 18 | INPUT\_PULLUP, interrupt-capable |
+| Flow Sensor 2 | 19 | INPUT\_PULLUP, interrupt-capable |
+| TDS Sensor | 36 | ADC1 — VP pin |
+| Water Level Sensor 1 | 34 | ADC1 |
+| Water Level Sensor 2 | 35 | ADC1 |
+
+> ⚠️ **ADC Note:** All analog sensors must use **ADC1** (GPIO 32–39).
+> ADC2 shares silicon with the WiFi radio and returns unreliable readings when WiFi is active.
 
 ---
 
-## ⚙️ Setup
+## 📱 Blynk Dashboard — Virtual Pin Mapping
 
-### 1. Dependencies
-
-Install via Arduino Library Manager or PlatformIO:
-
-- [Blynk](https://github.com/blynkkk/blynk-library) `≥ 1.3.0`
-- Arduino ESP32 core `≥ 2.0.0`
-
-### 2. Configuration
-
-Open `fertilizer_system.ino` and replace the placeholder values:
-
-```cpp
-// WiFi credentials
-const char ssid[] = "YOUR_WIFI_SSID";
-const char pass[] = "YOUR_WIFI_PASSWORD";
-
-// Blynk
-#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN"
-```
-
-### 3. Flow Sensor Calibration
-
-Adjust the calibration factors to match your specific flow sensors (pulses per litre):
-
-```cpp
-const float CALIB_FACTOR1 = 5.25;  // Sensor 1 — update after physical calibration
-const float CALIB_FACTOR2 = 5.50;  // Sensor 2 — update after physical calibration
-```
-
-To calibrate: run each pump for a measured volume, count the pulses via Serial Monitor, then divide `measured_ml / pulse_count`.
-
-### 4. TDS Calibration
-
-```cpp
-const float TEMPERATURE      = 23.0;  // Replace with live temperature sensor reading if available
-const float TDS_CALIB_FACTOR = 2.3;   // Adjust against a known-concentration reference solution
-```
-
-### 5. Water Level Thresholds
-
-```cpp
-// In getLevel()
-if (value <= 700)  return "Low";     // Red
-if (value <= 1200) return "Medium";  // Yellow
-return "High";                       // Green
-```
-Adjust thresholds based on your sensor's output range.
+| Pin | Direction | Widget | Description |
+|---|---|---|---|
+| V1 | Input | Numeric Input | Desired dispense volume (ml) |
+| V2 | Output | Value Display | Total volume dispensed (ml) |
+| V3 | Output | Gauge / Value Display | TDS reading (ppm) |
+| V4 | Output | LED + Value Display | Water level sensor 1 |
+| V5 | Output | LED + Value Display | Water level sensor 2 |
 
 ---
 
-## 🔄 System Flow
+## ⚙️ Setup & Configuration
+
+### 1. Install Dependencies
+
+Via **Arduino Library Manager** or **PlatformIO**:
+
+| Library | Version |
+|---|---|
+| [Blynk](https://github.com/blynkkk/blynk-library) | ≥ 1.3.0 |
+| [Arduino ESP32 Core](https://github.com/espressif/arduino-esp32) | ≥ 2.0.0 |
+
+### 2. Configure Credentials
+
+```bash
+# Copy the template
+cp config.h.example config.h
+```
+
+Then open `config.h` and fill in your values:
+
+```cpp
+#define WIFI_SSID      "your_wifi_name"
+#define WIFI_PASS      "your_wifi_password"
+#define BLYNK_TMPL_ID  "your_template_id"
+#define BLYNK_TOKEN    "your_auth_token"
+```
+
+> 🔒 `config.h` is listed in `.gitignore` — it will never be committed.
+
+### 3. Calibrate Flow Sensors
+
+Each flow sensor has a unique pulses-per-ml factor. To find yours:
+
+1. Run the pump for a **known volume** (e.g. 100 ml measured in a graduated cylinder)
+2. Read the pulse count from Serial Monitor
+3. Calculate: `CALIB_FACTOR = measured_ml / pulse_count`
+4. Update in the sketch:
+
+```cpp
+const float CALIB_FACTOR1 = 5.25;  // Sensor 1
+const float CALIB_FACTOR2 = 5.50;  // Sensor 2
+```
+
+### 4. Calibrate TDS Sensor
+
+```cpp
+const float TEMPERATURE      = 23.0f;  // °C — use DS18B20 for live readings
+const float TDS_CALIB_FACTOR = 2.3f;   // Tune against a known reference solution (e.g. 1413 µS/cm)
+```
+
+### 5. Adjust Water Level Thresholds
+
+Default ADC thresholds (0–4095 range on ESP32):
+
+```cpp
+if (value <= 700)  return "Low";     // → Red LED
+if (value <= 1200) return "Medium";  // → Yellow LED
+return "High";                       // → Green LED
+```
+
+Tune these values by reading your sensor dry, half-submerged, and fully submerged via Serial Monitor.
+
+---
+
+## 🔄 System Architecture
 
 ```
-Boot
- └─ WiFi connect → Blynk connect → Pin init → ISR attach → Timer setup
-        │
-        ▼
-Main Loop (non-blocking)
- ├─ Blynk.run()         — maintains cloud connection
- ├─ timer.run()         — triggers readWaterLevels() every 1s
- │                        triggers publishTDS() every 0.8s
- ├─ TDS ADC sample      — reads ADC every 40ms into circular buffer
- └─ updateDispense()    — state machine tick (only active during dispensing)
-
-Dispense Trigger (via Blynk V1)
- └─ startDispense(vol)
-      └─ Reset pulse counters (atomic)
-      └─ Open solenoids → Start pumps → State = DISPENSING
-           └─ updateDispense() polls each pump independently
-           └─ Each pump shuts off exactly when its volume target is reached
-           └─ Both done → report total to V2 → State = IDLE
+┌─────────────────────────────────────────────────────────┐
+│                        BOOT                             │
+│   WiFi → Blynk → Pin init → ISR attach → Timer setup   │
+└────────────────────────┬────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────┐
+│                    MAIN LOOP                            │
+│                                                         │
+│  Blynk.run() ──── maintains cloud connection            │
+│  timer.run() ──── readWaterLevels()  every 1000 ms      │
+│               └── publishTDS()       every  800 ms      │
+│  ADC sample  ──── TDS circular buffer every  40 ms      │
+│  updateDispense() state machine tick (when DISPENSING)  │
+└────────────────────────┬────────────────────────────────┘
+                         │
+          ┌──────────────▼──────────────┐
+          │   DISPENSE STATE MACHINE    │
+          │                             │
+          │  IDLE ──[V1 trigger]──►     │
+          │                             │
+          │  DISPENSING                 │
+          │   ├─ Atomic ISR read        │
+          │   ├─ Pump 1: off when done  │
+          │   ├─ Pump 2: off when done  │
+          │   └─ Both done → V2 → IDLE  │
+          └─────────────────────────────┘
 ```
 
 ---
 
 ## 🐛 Known Limitations
 
-- Temperature compensation uses a fixed constant (`23.0°C`) — for higher accuracy, integrate a live temperature sensor (e.g. DS18B20)
-- Flow sensor calibration factors are hardware-specific and must be measured physically for each unit
-- This is a research prototype — not hardened for production deployment
+- **Fixed temperature compensation** — `TEMPERATURE` is a constant (`23.0°C`). Integrating a DS18B20 temperature sensor would improve TDS accuracy in variable environments.
+- **Hardware-specific calibration** — `CALIB_FACTOR1` / `CALIB_FACTOR2` must be measured for each physical unit; the defaults are from the paper prototype only.
+- **Research prototype** — not hardened for unattended outdoor or production deployment. No OTA updates, no persistent error logging.
+- **Single Blynk session** — a second dispense command while one is in progress is silently ignored; no queuing.
 
 ---
 
 ## 📜 License
 
-This code is released under the **MIT License** for research and educational use.
-See [`LICENSE`](LICENSE) for full terms.
+Released under the **MIT License** — see [`LICENSE`](LICENSE) for full terms.
 
-**If you build on this work, please cite the original paper.**
+**Academic use:** If you build on this work, please cite the original paper.
 
 ---
 
 ## 👤 Author
 
 **Sri Tulasi Ram Rajalingam**
-Support Engineer & Researcher
+Support Engineer · Cytron Technologies, Penang, Malaysia
+🔗 [LinkedIn](https://www.linkedin.com/in/sri-tulasi-ram) · 📷 [@iamsritulasiram](https://instagram.com/iamsritulasiram)
