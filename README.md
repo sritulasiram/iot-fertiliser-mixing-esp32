@@ -209,4 +209,3 @@ Released under the **MIT License** — see [`LICENSE`](LICENSE) for full terms.
 
 **Sri Tulasi Ram Rajalingam**
 Support Engineer · Cytron Technologies, Penang, Malaysia
-🔗 [LinkedIn](https://www.linkedin.com/in/sri-tulasi-ram) · 📷 [@iamsritulasiram](https://instagram.com/iamsritulasiram)
