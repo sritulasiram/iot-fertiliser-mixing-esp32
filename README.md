@@ -207,5 +207,4 @@ Released under the **MIT License** — see [`LICENSE`](LICENSE) for full terms.
 
 ## 👤 Author
 
-**Sri Tulasi Ram Rajalingam**
-Support Engineer · Cytron Technologies, Penang, Malaysia
+**Sri Tulasi Ram**
