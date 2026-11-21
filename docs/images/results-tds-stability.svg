@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="640" height="380" role="img" aria-labelledby="t d">
+<title id="t">TDS sensor stability over seven days</title><desc id="d">Daily readings of a 258 ppm reference solution stay within 5 ppm of the calibration value.</desc>
+<style>
+  :root { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7;
+          --s1:#2a78d6; --s2:#eb6834; }
+  @media (prefers-color-scheme: dark) {
+    :root { --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --axis:#383835;
+            --s1:#3987e5; --s2:#d95926; }
+  }
+  text { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+  .t   { fill: var(--ink2); font-size: 12px; }
+  .tm  { fill: var(--muted); font-size: 12px; }
+  .ti  { fill: var(--ink);  font-size: 13px; }
+  .val { fill: var(--ink);  font-size: 12px; font-weight: 600; }
+  .grid{ stroke: var(--grid); stroke-width: 1; }
+  .axis{ stroke: var(--axis); stroke-width: 1; }
+  .ref { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+  .l1  { stroke: var(--s1); stroke-width: 2; fill: none; }
+  .f1  { fill: var(--s1); }
+  .f2  { fill: var(--s2); }
+  .dot1{ fill: var(--s1); stroke: var(--surface); stroke-width: 2; }
+</style>
+<rect width="640" height="380" fill="var(--surface)"/>
+<line class="grid" x1="64" x2="616" y1="324.0" y2="324.0"/>
+<text class="tm" x="56" y="328.0" text-anchor="end">245</text>
+<line class="grid" x1="64" x2="616" y1="249.0" y2="249.0"/>
+<text class="tm" x="56" y="253.0" text-anchor="end">250</text>
+<line class="grid" x1="64" x2="616" y1="174.0" y2="174.0"/>
+<text class="tm" x="56" y="178.0" text-anchor="end">255</text>
+<line class="grid" x1="64" x2="616" y1="99.0" y2="99.0"/>
+<text class="tm" x="56" y="103.0" text-anchor="end">260</text>
+<line class="grid" x1="64" x2="616" y1="24.0" y2="24.0"/>
+<text class="tm" x="56" y="28.0" text-anchor="end">265</text>
+<line class="axis" x1="64" x2="616" y1="324" y2="324"/>
+<text class="t" x="16" y="174" text-anchor="middle" transform="rotate(-90 16 174)">TDS reading (ppm)</text>
+<text class="tm" x="96.5" y="342" text-anchor="middle">1</text>
+<text class="tm" x="177.6" y="342" text-anchor="middle">2</text>
+<text class="tm" x="258.8" y="342" text-anchor="middle">3</text>
+<text class="tm" x="340.0" y="342" text-anchor="middle">4</text>
+<text class="tm" x="421.2" y="342" text-anchor="middle">5</text>
+<text class="tm" x="502.4" y="342" text-anchor="middle">6</text>
+<text class="tm" x="583.5" y="342" text-anchor="middle">7</text>
+<text class="t" x="340" y="368" text-anchor="middle">Day</text>
+<line class="ref" x1="64" x2="616" y1="129.0" y2="129.0"/>
+<text class="tm" x="70" y="123.0">calibration value 258 ppm</text>
+<polyline class="l1" points="96.5,144.0 177.6,204.0 258.8,174.0 340.0,99.0 421.2,159.0 502.4,129.0 583.5,159.0"/>
+<circle class="dot1" cx="96.5" cy="144.0" r="5"><title>Day 1: 257 ppm (deviation 1)</title></circle>
+<circle class="dot1" cx="177.6" cy="204.0" r="5"><title>Day 2: 253 ppm (deviation 5)</title></circle>
+<circle class="dot1" cx="258.8" cy="174.0" r="5"><title>Day 3: 255 ppm (deviation 3)</title></circle>
+<circle class="dot1" cx="340.0" cy="99.0" r="5"><title>Day 4: 260 ppm (deviation 2)</title></circle>
+<circle class="dot1" cx="421.2" cy="159.0" r="5"><title>Day 5: 256 ppm (deviation 2)</title></circle>
+<circle class="dot1" cx="502.4" cy="129.0" r="5"><title>Day 6: 258 ppm (deviation 0)</title></circle>
+<circle class="dot1" cx="583.5" cy="159.0" r="5"><title>Day 7: 256 ppm (deviation 2)</title></circle>
+<text class="val" x="177.6" y="224.0" text-anchor="middle">253 (max deviation 5)</text>
+</svg>

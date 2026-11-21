@@ -1,0 +1,39 @@
+/*
+ * config.h.example — copy to config.h and fill in. config.h is git-ignored.
+ * Never commit real credentials.
+ */
+#ifndef CONFIG_H
+#define CONFIG_H
+
+// ─── WiFi ────────────────────────────────────────────────────────────────────
+#define WIFI_SSID   "YOUR_WIFI_SSID"
+#define WIFI_PASS   "YOUR_WIFI_PASSWORD"
+
+// ─── Transports: enable either or both (1 = on, 0 = off) ─────────────────────
+#define USE_BLYNK   1
+#define USE_MQTT    0
+
+// ─── Blynk (only used when USE_BLYNK = 1) ────────────────────────────────────
+#define BLYNK_TMPL_ID  "YOUR_BLYNK_TEMPLATE_ID"
+#define BLYNK_TOKEN    "YOUR_BLYNK_AUTH_TOKEN"
+
+// ─── MQTT (only used when USE_MQTT = 1) ──────────────────────────────────────
+#define MQTT_HOST      "broker.local"
+#define MQTT_PORT      1883
+#define MQTT_USER      ""            // leave empty for anonymous
+#define MQTT_PASSWORD  ""
+
+// TLS: set to 1 and provide the broker's CA certificate (PEM). Port is usually 8883.
+#define MQTT_USE_TLS   0
+// #define MQTT_CA_CERT "-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----\n"
+
+// ─── Optional hardware ───────────────────────────────────────────────────────
+// 1 only if a normally-closed E-stop button is wired between GPIO27 and GND.
+// With the button absent, leave 0 — otherwise the floating pin reads as "pressed".
+#define ENABLE_ESTOP_BUTTON 0
+
+// 1 only if a DS18B20 waterproof temperature sensor is wired to GPIO4 (4.7k pull-up to 3.3 V).
+// Needs the OneWire and DallasTemperature libraries. 0 = fixed 23 C for TDS compensation.
+#define ENABLE_DS18B20 0
+
+#endif // CONFIG_H

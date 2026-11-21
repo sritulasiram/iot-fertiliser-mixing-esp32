@@ -1,0 +1,16 @@
+item,qty,part,key_specs,source
+mcu,1,NodeMCU ESP-WROOM-32 (ESP32) on 38-pin expansion board,Expansion board takes 12 V in and supplies 5 V (on-board regulator 5 V 1 A),FYP report 3.3.1
+relay_module_load,1,4-channel relay module (12 V coil),Opto-isolated inputs; 15-20 mA per relay; contacts AC 250 V 10 A / DC 30 V 10 A; switches pumps 1-2 and solenoids 1-2,FYP report Table 3.3
+relay_module_mixer,1,1-channel 5 V relay module,Electromechanical; up to 250 VAC / 10 A; switches the 240 V AC mixing pump in the storage tank,FYP report Table 3.4
+pump_dosing,2,12 V DC submersible pump (one in each reservoir),4.2 W; max 240 L/h; max lift 3 m; IP68; 9 mm outer / 6 mm inner hose,FYP report Table 3.10
+solenoid_valve,2,12 V DC normally-closed solenoid valve (G1/2),15 W; 1.25 A; 0.02-0.8 MPa; opens in 0.15 s or less; closes in 0.3 s or less,FYP report Table 3.9
+flow_sensor,2,YF-S201 water flow sensor,4.5-24 V; 1-30 L/min; interrupt pulse output; measured ~4.25-5.5 ml per pulse in this build,FYP report Table 3.7
+tds_sensor,1,TDS Meter V1.0 with waterproof probe,3.3-5.5 V; output 0-2.3 V; 0-1000 ppm; +/-10% F.S. at 25 C,FYP report Tables 3.5-3.6
+level_sensor,2,Analog water level sensor (5 copper traces),3.3-5 V; analog output proportional to wetted area; one per reservoir,FYP report Table 3.8
+mixing_pump,1,Sobo Aquarium WP-200D (storage tank),220-240 V AC 50/60 Hz; 25 W; 1800 L/h; 1.5 m head,FYP report Table 3.11
+power_supply,1,AC-DC 12 V 10 A supply (S-120-12),120 W; overload/overvoltage/short-circuit protection,FYP report Table 3.12
+enclosure,1,E8 E1000 PVC box,32 x 25 x 13 cm,FYP report Table 3.14
+wiring,1,Dupont jumpers; 2-core and 3-core cable; KV-426 connectors; 2-pin and 3-pin terminal sockets,,FYP report 3.3.4
+plumbing,1,PVC clear tubing; brass 1/2 in to 8 mm hose couplings; BSP coupler sockets; 1/2 in extension adaptors,,FYP report 3.3.5
+reservoirs,2,Existing NFT hydroponic A and B nutrient tanks,,FYP report 3.3.5
+storage_tank,1,Water storage tank (mixing tank),,FYP report 3.3.5

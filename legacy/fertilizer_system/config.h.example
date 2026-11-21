@@ -1,0 +1,27 @@
+/*
+ * config.h.example
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Template for user credentials and secrets.
+ *
+ * HOW TO USE:
+ *   1. Copy this file and rename the copy to:  config.h
+ *   2. Fill in your actual values below
+ *   3. config.h is listed in .gitignore — it will NOT be committed to GitHub
+ *
+ * ⚠️  Never commit config.h or share your real credentials publicly.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+#ifndef CONFIG_H
+#define CONFIG_H
+
+// ─── WiFi ────────────────────────────────────────────────────────────────────
+#define WIFI_SSID   "YOUR_WIFI_SSID"
+#define WIFI_PASS   "YOUR_WIFI_PASSWORD"
+
+// ─── Blynk ───────────────────────────────────────────────────────────────────
+// Find these in the Blynk app under your template settings
+#define BLYNK_TMPL_ID  "YOUR_BLYNK_TEMPLATE_ID"
+#define BLYNK_TOKEN    "YOUR_BLYNK_AUTH_TOKEN"
+
+#endif // CONFIG_H

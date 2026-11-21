@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 328" width="640" height="328" role="img" aria-labelledby="t d">
+<title id="t">System response time</title><desc id="d">Average time for solenoid valves to open (10.85 s), fertiliser dispense of one litre (10.79 s) and pump activation (1.07 s); total 22.17 s.</desc>
+<style>
+  :root { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7;
+          --s1:#2a78d6; --s2:#eb6834; }
+  @media (prefers-color-scheme: dark) {
+    :root { --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --axis:#383835;
+            --s1:#3987e5; --s2:#d95926; }
+  }
+  text { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+  .t   { fill: var(--ink2); font-size: 12px; }
+  .tm  { fill: var(--muted); font-size: 12px; }
+  .ti  { fill: var(--ink);  font-size: 13px; }
+  .val { fill: var(--ink);  font-size: 12px; font-weight: 600; }
+  .grid{ stroke: var(--grid); stroke-width: 1; }
+  .axis{ stroke: var(--axis); stroke-width: 1; }
+  .ref { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+  .l1  { stroke: var(--s1); stroke-width: 2; fill: none; }
+  .f1  { fill: var(--s1); }
+  .f2  { fill: var(--s2); }
+  .dot1{ fill: var(--s1); stroke: var(--surface); stroke-width: 2; }
+</style>
+<rect width="640" height="328" fill="var(--surface)"/>
+<line class="grid" x1="190.0" x2="190.0" y1="30" y2="232"/>
+<text class="tm" x="190.0" y="248" text-anchor="middle">0</text>
+<line class="grid" x1="287.5" x2="287.5" y1="30" y2="232"/>
+<text class="tm" x="287.5" y="248" text-anchor="middle">3</text>
+<line class="grid" x1="385.0" x2="385.0" y1="30" y2="232"/>
+<text class="tm" x="385.0" y="248" text-anchor="middle">6</text>
+<line class="grid" x1="482.5" x2="482.5" y1="30" y2="232"/>
+<text class="tm" x="482.5" y="248" text-anchor="middle">9</text>
+<line class="grid" x1="580.0" x2="580.0" y1="30" y2="232"/>
+<text class="tm" x="580.0" y="248" text-anchor="middle">12</text>
+<text class="t" x="385" y="270" text-anchor="middle">Average response time (seconds)</text>
+<text class="t" x="180" y="59.0" text-anchor="end">Solenoid valves open</text>
+<path class="f1" d="M190,40 L538.6,40 Q542.6,40 542.6,44 L542.6,66 Q542.6,70 538.6,70 L190,70 Z"><title>Solenoid valves open: 10.85 s</title></path>
+<text class="val" x="550.6" y="59.0">10.85 s</text>
+<text class="t" x="180" y="123.0" text-anchor="end">Fertiliser dispense (1 L)</text>
+<path class="f1" d="M190,104 L536.7,104 Q540.7,104 540.7,108 L540.7,130 Q540.7,134 536.7,134 L190,134 Z"><title>Fertiliser dispense (1 L): 10.79 s</title></path>
+<text class="val" x="548.7" y="123.0">10.79 s</text>
+<text class="t" x="180" y="187.0" text-anchor="end">Pumps activation</text>
+<path class="f1" d="M190,168 L220.8,168 Q224.8,168 224.8,172 L224.8,194 Q224.8,198 220.8,198 L190,198 Z"><title>Pumps activation: 1.07 s</title></path>
+<text class="val" x="232.8" y="187.0">1.07 s</text>
+<text class="ti" x="64" y="304">Total 22.17 s, command to completion (stopwatch, via Blynk)</text>
+</svg>

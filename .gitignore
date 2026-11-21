@@ -1,0 +1,28 @@
+# Secrets
+config.h
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Firmware
+.pio/
+.vscode/
+build/
+
+# Backend / web
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+dist/
+.next/
+coverage/
+
+# Data
+data/
+*.db
+
+# OS
+.DS_Store
