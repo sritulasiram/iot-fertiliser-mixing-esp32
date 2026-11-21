@@ -1,6 +1,6 @@
 # Measured Performance
 
-Results from the final-year project evaluation of the prototype. **Source:** *FYP 2 Final Report* (Chapter 4), the build described in the [published paper](https://penerbit.uthm.edu.my/ojs/index.php/ijie/article/view/24386).
+Results from the final-year project evaluation of the prototype. **Source:** *FYP 2 Final Report* (Chapter 4), the build described in the [published paper](https://journal.uthm.edu.my/index.php/ijie/article/view/24386).
 
 > **Scope.** These numbers were measured on the **paper prototype firmware** (flow factors 4.25 and 5.25 ml/pulse, which is now the `standard` profile, TDS factor 2.3, Blynk only, no safety layer). The current firmware (1.3.0) has **not been re-measured**. Each test used 3 repeats per point.
 

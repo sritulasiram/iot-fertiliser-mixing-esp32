@@ -1,7 +1,7 @@
 /*
- * IoT-Based Fertiliser Mixing System for Precision Farming — v1.2.0 (safety release)
+ * IoT-Based Fertiliser Mixing System for Precision Farming — firmware v1.5.0
  * Sri Tulasi Ram Rajalingam, Muhammad Muzakkir Mohd Nadzri, Afandi Ahmad, Mohamad Khairi Ishak
- * IJIE 18(1), 186-201, 2026 — https://penerbit.uthm.edu.my/ojs/index.php/ijie/article/view/24386
+ * IJIE 18(1), 186-201, 2026 — DOI 10.30880/ijie.2026.18.01.014, https://journal.uthm.edu.my/index.php/ijie/article/view/24386
  * MIT License.
  *
  * Arduino IDE: open this folder as a sketch. Copy config.h.example to config.h first.

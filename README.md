@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-ESP32-blue.svg)](https://www.espressif.com/en/products/socs/esp32)
 [![Arduino IDE](https://img.shields.io/badge/Build-Arduino%20IDE-teal.svg)](https://www.arduino.cc/en/software)
-[![Journal](https://img.shields.io/badge/Published-IJIE%202026-orange.svg)](https://penerbit.uthm.edu.my/ojs/index.php/ijie/article/view/24386)
+[![Journal](https://img.shields.io/badge/Published-IJIE%202026-orange.svg)](https://journal.uthm.edu.my/index.php/ijie/article/view/24386)
 
 </div>
 
@@ -15,22 +15,32 @@
 
 ## 📄 Publication
 
-> **Sri Tulasi Ram Rajalingam**, Muhammad Muzakkir Mohd Nadzri, Afandi Ahmad, & Mohamad Khairi Ishak.
-> *IoT-Based Fertiliser Mixing for Precision Farming.*
-> **International Journal of Integrated Engineering (IJIE)**, Vol. 18(1), pp. 186–201, 2026.
-> 🔗 [View paper](https://penerbit.uthm.edu.my/ojs/index.php/ijie/article/view/24386) · DOI [10.30880/ijie.2026.18.01.014](https://doi.org/10.30880/ijie.2026.18.01.014)
+If you use this code or build on this work, please cite the paper. Citation as given by the journal (APA style):
 
-If you use this code or build on this work, please cite the paper:
+> Sri Tulasi Ram Rajalingam, Muhammad Muzakkir Mohd Nadzri, Afandi Ahmad, & Mohamad Khairi Ishak. (2026). IoT-Based Fertiliser Mixing for Precision Farming. *International Journal of Integrated Engineering*, *18*(1), 186–201. https://journal.uthm.edu.my/index.php/ijie/article/view/24386
+>
+> DOI: [10.30880/ijie.2026.18.01.014](https://doi.org/10.30880/ijie.2026.18.01.014)
+
+BibTeX (the journal's own fields; the DOI is from the paper's first page):
 
 ```bibtex
 @article{rajalingam2026fertiliser,
-  title   = {{IoT-Based Fertiliser Mixing for Precision Farming}},
+  title   = {IoT-Based Fertiliser Mixing for Precision Farming},
   author  = {Sri Tulasi Ram Rajalingam and Muhammad Muzakkir Mohd Nadzri and Afandi Ahmad and Mohamad Khairi Ishak},
   journal = {International Journal of Integrated Engineering},
-  volume  = {18}, number = {1}, pages = {186--201}, year = {2026},
+  volume  = {18},
+  number  = {1},
+  pages   = {186--201},
+  year    = {2026},
+  month   = apr,
+  url     = {https://journal.uthm.edu.my/index.php/ijie/article/view/24386},
   doi     = {10.30880/ijie.2026.18.01.014}
 }
 ```
+
+The journal also offers other formats (IEEE, Chicago, Harvard, MLA and more) and a BibTeX/RIS download on the [article page](https://journal.uthm.edu.my/index.php/ijie/article/view/24386).
+
+---
 
 ## 📌 What it does
 
